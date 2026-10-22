@@ -17,39 +17,61 @@ function writeOutcome(props: EnhanceButtonProps, text: string, outcome: EnhanceO
     ? (outcome.base ?? outcome.original).length : outcome.enhanced.length, draftRev: outcome.draftRev! })
 }
 
-/** One quiet line below the native input, in both welcome and ordinary layouts. */
+/** A compact, wrapping status row with actions for the current request only. */
 export function EnhanceFeedback(props: EnhanceButtonProps) {
   const { sessionId, t } = props, outcome = useOutcome(sessionId), activity = useActivity(sessionId)
   const input = props.useInput(value => value), root = useRef<HTMLDivElement>(null)
+  const [dismissed, setDismissed] = useState<EnhanceOutcome>()
+  const previous = useRef({ sessionId, rev: input.draftRev, notice: activity.notice })
   const valid = outcome !== undefined && input.phase === 'plain' && matchesOutcome(outcome, input.draft, input.draftRev)
+  const notice = activity.busy ? undefined : activity.notice
+  const showResult = !activity.busy && !notice && valid && outcome !== dismissed
+  const retryable = !!notice && !['changed', 'cancelled', 'unchanged'].includes(notice)
+  const state = activity.busy ? 'busy' : retryable ? 'error' : notice ? 'info'
+    : outcome?.applied === false ? 'warning' : 'success'
+  const message = activity.busy ? t(activity.mode === 'preview' ? 'loadingPreview'
+    : activity.mode === 'conditioned' ? 'loadingConditioned' : 'loading')
+    : notice ? t(notice as keyof typeof import('./locales.ts').zh)
+    : outcome?.reviewReason === 'facts' ? t('feedbackReview') : outcome?.applied === false ? t('feedbackPreview') : t('resultOk')
   useEffect(() => {
     if (outcome && input.phase === 'plain' && !input.draft.trim()) resultStore.dismiss(sessionId)
   }, [outcome, input.draft, input.phase, sessionId])
   useEffect(() => {
-    if (outcome?.applied === false || !outcome) return
+    const before = previous.current
+    previous.current = { sessionId, rev: input.draftRev, notice }
+    // Keep a fresh cancellation notice, then retire it on the next draft edit.
+    if (!activity.busy && notice && before.sessionId === sessionId
+      && before.rev !== input.draftRev && before.notice === notice) workflow.set(sessionId, { busy: false })
+  }, [sessionId, input.draftRev, notice, activity.busy])
+  useEffect(() => {
+    if (!valid || !outcome || outcome.applied === false) return
     const editor = root.current?.closest('[data-composer-seat], .fixture-layout')?.querySelector('[data-composer-input], [data-editor]')
     editor?.classList.add('dsh-pe-flash')
-    const timer = setTimeout(() => editor?.classList.remove('dsh-pe-flash'), 650)
+    const timer = setTimeout(() => editor?.classList.remove('dsh-pe-flash'), 450)
     return () => { clearTimeout(timer); editor?.classList.remove('dsh-pe-flash') }
-  }, [outcome])
-  if (!activity.busy && !activity.notice && !valid) return null
-  return <div ref={root} className="dsh-pe-feedback" aria-live="polite" role="status">
-    <span className="dsh-pe-feedback-label">
-      {activity.busy && <span className="dsh-pe-spinner" aria-hidden="true" />}
-      {!activity.busy && valid && !activity.notice && <span aria-hidden="true">{outcome.applied === false ? '◌' : '✓'}</span>}
-      <span>{activity.busy ? t('loading') : activity.notice ? t(activity.notice as keyof typeof import('./locales.ts').zh)
-        : outcome?.reviewReason === 'facts' ? t('needsReview') : outcome?.applied === false ? t('previewReady') : t('resultOk')}</span>
+  }, [outcome, valid])
+  if (!activity.busy && !notice && !showResult) return null
+  return <div ref={root} className="dsh-pe-feedback" data-state={state}>
+    <span className="dsh-pe-feedback-label" aria-live="polite" aria-atomic="true" role="status">
+      {activity.busy ? <span className="dsh-pe-spinner" aria-hidden="true" /> : <span className="dsh-pe-feedback-icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          {state === 'success' ? <path d="m4 10 4 4 8-8" /> : <><circle cx="10" cy="10" r="7" /><path d="M10 6v4m0 3h.01" /></>}
+        </svg>
+      </span>}
+      <span>{message}</span>
     </span>
     <span className="dsh-pe-feedback-actions">
       {activity.busy ? <button type="button" onClick={() => workflow.cancel(sessionId)}>{t('cancel')}</button> : <>
-        {valid && outcome.applied !== false && <button type="button" onClick={() => {
+        {showResult && outcome.applied !== false && <button type="button" onClick={() => {
           if (writeOutcome(props, outcome.original, outcome)) resultStore.dismiss(sessionId)
         }}>{t('actionUndo')}</button>}
-        {valid && <button type="button" onClick={() => props.openPanel()}>{t('viewChanges')}</button>}
-        {activity.notice && !['changed', 'cancelled', 'unchanged'].includes(activity.notice) && <button type="button"
-          onClick={() => { void workflow.run(sessionId, 'quick') }}>{t('actionRetry')}</button>}
-        {activity.notice && <button type="button" aria-label={t('actionDismiss')}
-          onClick={() => workflow.set(sessionId, { busy: false })}>×</button>}
+        {showResult && <button type="button" onClick={() => props.openPanel()}>{t('viewChanges')}</button>}
+        {retryable && <button type="button" onClick={() => { void workflow.run(sessionId, 'quick') }}>{t('actionRetry')}</button>}
+        <button type="button" className="dsh-pe-feedback-dismiss" aria-label={t('actionDismiss')}
+          onClick={() => {
+            setDismissed(outcome)
+            if (notice) workflow.set(sessionId, { busy: false })
+          }}><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true"><path d="m3 3 6 6m0-6-6 6" /></svg></button>
       </>}
     </span>
   </div>

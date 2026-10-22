@@ -1,0 +1,110 @@
+{
+  "source": "repository workspace",
+  "installed": "local Harness desktop profile; 25 output files verified by SHA-256",
+  "backup": "local backup retained; machine-specific paths omitted",
+  "tests": 130,
+  "browserCases": 176,
+  "nativeHostValidated": false,
+  "files": [
+    {
+      "file": "client.js",
+      "sha256": "44E3DCACD69CE1B536A74BA0B1887ADCB7F9681544A3DCD3FA8546C2F98F3E0C"
+    },
+    {
+      "file": "client.js.map",
+      "sha256": "F1F0A2F38798F93EBF0E5299C9F1B8B474C4DD1B163C66D996BD16D51C052AE1"
+    },
+    {
+      "file": "index.js",
+      "sha256": "A81ED7210C18FECC91589DAD914AB1B80F914D0B05A10C5EC304192C91B4A5FE"
+    },
+    {
+      "file": "index.js.map",
+      "sha256": "263FAEA88424E5E8B03592EC98EE2C65CFC4180C021A4DC2CA1D02022CCD5BDA"
+    },
+    {
+      "file": "remote.js",
+      "sha256": "C1CD767549D2EB6FD98048DB85157D41BAA753BF6A3070A9D18680618C0BECAF"
+    },
+    {
+      "file": "remote.js.map",
+      "sha256": "58C7B3EBA15DD4538908650A46E4213BC928176C2A00F33AF252D710565757F6"
+    },
+    {
+      "file": "types/cancellation.d.ts",
+      "sha256": "2BDA125364D70607F0D2FF0D7E6086274FF6D296F687ED1F8FE0050AF1D15505"
+    },
+    {
+      "file": "types/client.d.ts",
+      "sha256": "40A940EB4C9F566DECE1D746629EBFCFF53E72C9A17C10448F22D482EF1C8760"
+    },
+    {
+      "file": "types/enhance.d.ts",
+      "sha256": "DF8632BB8C0919B99320EF13BB2B325389736C90C022C4FD85E24832594A6E0E"
+    },
+    {
+      "file": "types/EnhanceButton.d.ts",
+      "sha256": "1A46844FEADDAAC3A5C31F9BA403AC920F8CA44C02086C792EF4CEC458E844D1"
+    },
+    {
+      "file": "types/EnhanceLauncher.d.ts",
+      "sha256": "DF36420F4B033EF1FD519CA75A7DA28F72838A316F6F93D5C3BFB8472D92FA28"
+    },
+    {
+      "file": "types/EnhancePanel.d.ts",
+      "sha256": "DCDFE4E35583298F531190182BB23B17693975B6F0C9EF7D87B1CB3C6ECD19E8"
+    },
+    {
+      "file": "types/EnhanceResult.d.ts",
+      "sha256": "72347A71A73B21AF2C3BB2C46AD41DCF97A36C1008F46A09832D6165C39E8E67"
+    },
+    {
+      "file": "types/failure.d.ts",
+      "sha256": "3F5D68BECC04A6A61E1009E0604AD5F0287BF89AFC3A542D90E2613D6CB358EA"
+    },
+    {
+      "file": "types/fidelity.d.ts",
+      "sha256": "EB5F90D8CD384C8063867E1787C1F494DAB956CB3F6DD8B1CF6F8C0A87401F18"
+    },
+    {
+      "file": "types/index.d.ts",
+      "sha256": "E1583D3EDEA3DCF3AB3082A0DCFA05DE130847104B9FF4FEF69B69E5E87EDC06"
+    },
+    {
+      "file": "types/lint.d.ts",
+      "sha256": "4987A71AFD90518D20BA54BD3D9996FFD02F11EB079F6BFE90306C77F87EF9E0"
+    },
+    {
+      "file": "types/lintRules.d.ts",
+      "sha256": "E2A359ED715FBE51CA56ECA5337BD4C5AC6582986FEA4F6E02A058D1F6525B96"
+    },
+    {
+      "file": "types/lintTypes.d.ts",
+      "sha256": "665F4C7FE45F373FBE542C42D2E4A045C1AE892E1D898994179F61EC47E53EFE"
+    },
+    {
+      "file": "types/locales.d.ts",
+      "sha256": "22314EC2C9E5AC656EF0FEB00F0A61FA8C5774CD9F3509653735561C6EC3FAC5"
+    },
+    {
+      "file": "types/plainText.d.ts",
+      "sha256": "8DF2E174DC139695FB6D7C64BBB4ACF91F863EA00BE2C275D6D54E4F257B6364"
+    },
+    {
+      "file": "types/remote.d.ts",
+      "sha256": "C47008E80CA0DF01EC1DAA169C4DD6D8DED52956575C40895A17FD0E2A711F8F"
+    },
+    {
+      "file": "types/resultStore.d.ts",
+      "sha256": "9853498467201FD9D377FC65C27B66D9E1F088AF639742C82E2364E7271AC234"
+    },
+    {
+      "file": "types/selection.d.ts",
+      "sha256": "4E710C116991A0512BB2DF55BA5C87769F733FE3F0E11EDEF6163D0D84D26484"
+    },
+    {
+      "file": "types/workflow.d.ts",
+      "sha256": "1C76B0516BED3B64438C2C86015A9CF238F52C175D9AC1173991024945F58A1E"
+    }
+  ]
+}

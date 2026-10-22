@@ -58,6 +58,7 @@
     "typecheck": "tsc -p tsconfig.host.json --noEmit && tsc -p tsconfig.client.json --noEmit",
     "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
     "test:browser": "node scripts/browser-smoke.mjs",
+    "test:feedback": "node scripts/feedback-smoke.mjs",
     "test:installed": "node scripts/test-installed.mjs",
     "check": "npm run typecheck && npm run build && npm test",
     "prepack": "npm run check"

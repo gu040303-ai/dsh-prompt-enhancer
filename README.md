@@ -2,6 +2,8 @@
 
 点击输入框中的魔法棒，即可使用当前模型优化提示词并写回。完成后可撤销；只有需要仔细检查时才打开侧栏。
 
+> `motion-polish` 分支包含动效与状态提示修复。完整安装包：[dsh-prompt-enhancer-0.4.0-motion-fix.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/raw/refs/heads/motion-polish/downloads/dsh-prompt-enhancer-0.4.0-motion-fix.tgz)。下载后在 Harness「插件 → 添加插件」中填写本地文件的绝对路径，无需解压或构建。安装及验证说明见 [downloads/README.md](downloads/README.md)。这是基于 0.4.0 的修复构建，包内版本仍为 0.4.0。
+
 精确适配 DeepSeek Harness 0.2.1-rc.2，支持桌面 Electron 与 Web，复用已有模型配置。
 
 ![一键优化后的原生输入区](assets/quick.png)

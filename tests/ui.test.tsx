@@ -202,3 +202,67 @@ test('preview is clean by default and checks stay collapsed until requested', as
   assert.equal(f.view.queryAllByRole('checkbox').length, 0)
   assert.equal(f.view.container.querySelector('.dsh-pe-checks')!.open, false)
 })
+
+test('feedback distinguishes preview generation, pending review and applied text', async t => {
+  const f = await fixture(t)
+  f.menu('先预览再应用')
+  assert.match(f.view.container.querySelector('.dsh-pe-feedback-label')!.textContent!, /正在生成预览/)
+  await f.settle('预算 200 元，输出计划。')
+  assert.match(f.view.getByRole('status').textContent!, /预览已就绪，尚未写回/)
+  assert.equal(f.writes, 0)
+  fireEvent.click(f.action('应用改动'))
+  assert.equal(f.view.getByRole('status').textContent, '已优化并写回')
+  assert.equal(f.writes, 1)
+})
+
+test('missing-detail feedback explicitly says the result has not been applied', async t => {
+  const f = await fixture(t); f.click(); await f.settle('输出计划。')
+  assert.match(f.view.container.querySelector('.dsh-pe-feedback-label')!.textContent!, /有细节需确认，尚未写回/)
+  assert.equal(f.writes, 0)
+  assert.equal(f.view.queryByRole('button', { name: '撤销', exact: true }), null)
+})
+
+test('a failed retry shows only failure actions, without mixing previous-result controls', async t => {
+  const f = await fixture(t); f.click(); await f.settle('保留 200 元，输出计划。')
+  f.click(); await f.fail({ details: { reason: 'timeout' } })
+  const feedback = within(f.view.container.querySelector('.dsh-pe-feedback')! as HTMLElement)
+  assert.match(feedback.getByRole('status').textContent!, /优化超时/)
+  assert.ok(feedback.getByRole('button', { name: '重新优化', exact: true }))
+  assert.equal(feedback.queryByRole('button', { name: '撤销', exact: true }), null)
+  assert.equal(feedback.queryByRole('button', { name: '查看改动', exact: true }), null)
+  fireEvent.click(f.action('关闭结果提示'))
+  assert.equal(f.view.container.querySelector('.dsh-pe-feedback'), null)
+  assert.equal(f.input.draft, '保留 200 元，输出计划。')
+})
+
+test('dismissing success preserves the sidebar result and a later result shows feedback again', async t => {
+  const f = await fixture(t); f.click(); await f.settle('保留 200 元，输出计划。')
+  fireEvent.click(f.action('查看改动'))
+  const outcome = f.outcome
+  fireEvent.click(f.action('关闭结果提示'))
+  assert.equal(f.view.container.querySelector('.dsh-pe-feedback'), null)
+  assert.equal(f.outcome, outcome)
+  assert.match(f.view.getByRole('tabpanel').textContent!, /保留 200 元，输出计划/)
+  f.click(); await f.settle('保留 200 元，补充执行步骤。')
+  assert.equal(f.view.getByRole('status').textContent, '已优化并写回')
+})
+
+test('status announcements contain the message without repeating action labels', async t => {
+  const f = await fixture(t); f.click()
+  const status = f.view.getByRole('status')
+  assert.equal(status.getAttribute('aria-atomic'), 'true')
+  assert.equal(status.textContent, '优化中…')
+  assert.equal(status.querySelector('button'), null)
+  fireEvent.click(f.action('取消'))
+  assert.equal(status.textContent, '已取消，输入未改变。')
+})
+
+test('editing retires an old failure, while cancellation caused by editing remains visible once', async t => {
+  const f = await fixture(t); f.click(); await f.fail({ details: { reason: 'timeout' } })
+  f.edit('新的提示词 200 元。')
+  assert.equal(f.view.container.querySelector('.dsh-pe-feedback'), null)
+  f.click(); f.edit('优化期间继续输入 200 元。')
+  assert.match(f.view.getByRole('status').textContent!, /输入内容已改变/)
+  f.edit('继续编辑 200 元。')
+  assert.equal(f.view.container.querySelector('.dsh-pe-feedback'), null)
+})
