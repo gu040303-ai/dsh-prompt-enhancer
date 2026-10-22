@@ -1,0 +1,23 @@
+{
+  "harness": "0.2.1-rc.2",
+  "plugin": "0.4.0",
+  "surface": "actual installed Electron application",
+  "screenshot": "Electron capturePage, hidden isolated window",
+  "model": "local deterministic adapter; no external model calls",
+  "checks": [
+    "Cold boot activates the installed plugin; empty input disables enhancement",
+    "One click completes the real Gateway/model call and writes a plain prompt without opening a panel",
+    "Host strips model-generated headings, bold and bullet markup before editor write-back",
+    "Native Ctrl+Z restores the entire original in one undo step",
+    "The optional preview opens on clean text with local checks collapsed and no editor write",
+    "Sentence choices update only the preview",
+    "Native review and fixed actions fit light 1280px",
+    "Native review and fixed actions fit dark 375px",
+    "Explicit Apply and Restore Original use the native revision-checked editor",
+    "Conditional optimization completes from one menu selection and remains undoable",
+    "Detected detail loss blocks automatic write-back; restoring and applying stays plain text",
+    "Cancel releases the active request; a following adapter failure preserves every original character",
+    "A new session can use the one-click flow before sending any message",
+    "No page runtime errors"
+  ]
+}

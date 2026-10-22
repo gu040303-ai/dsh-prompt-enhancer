@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "nativeManager": true,
+  "version": "0.4.0",
+  "patchUnchanged": true,
+  "hashes": {
+    "lib/index.js": "a81ed7210c18fecc91589dad914ab1b80f914d0b05a10c5ec304192c91b4a5fe",
+    "lib/client.js": "e64ba40bf5e2b51f84cb771a5d48d89708c03718e94ad98145fd29abc3eb89e9",
+    "lib/remote.js": "c1cd767549d2eb6fd98048db85157d41baa753bf6a3070a9d18680618c0becaf",
+    "cordis.patch.yml": "a92ace4f153a777d8863b214303fa6aa7ae794c2b10bf1ea84c0acc7614761b7"
+  }
+}

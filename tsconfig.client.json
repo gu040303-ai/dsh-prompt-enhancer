@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/client.ts", "src/EnhanceButton.tsx", "src/locales.ts", "src/remote.ts"]
+}

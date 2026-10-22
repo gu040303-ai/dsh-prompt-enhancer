@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "profileIsolated": true,
+  "hashes": {
+    "lib/client.js": "e64ba40bf5e2b51f84cb771a5d48d89708c03718e94ad98145fd29abc3eb89e9",
+    "lib/index.js": "a81ed7210c18fecc91589dad914ab1b80f914d0b05a10c5ec304192c91b4a5fe",
+    "lib/remote.js": "c1cd767549d2eb6fd98048db85157d41baa753bf6a3070a9d18680618c0becaf",
+    "cordis.patch.yml": "a92ace4f153a777d8863b214303fa6aa7ae794c2b10bf1ea84c0acc7614761b7"
+  },
+  "baselineSha256": "e90aa7ea9c241149c8c93929532f34e13ab22c0c6635117c45d61ab7f01574b2",
+  "afterUninstallSha256": "e90aa7ea9c241149c8c93929532f34e13ab22c0c6635117c45d61ab7f01574b2",
+  "byteIdentical": true
+}

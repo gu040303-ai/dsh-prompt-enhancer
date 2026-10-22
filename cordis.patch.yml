@@ -1,0 +1,8 @@
+- insert:
+    - id: prompt-enhancer
+      name: dsh-prompt-enhancer
+      config:
+        timeoutMs: 60000
+        maxInputBytes: 65536
+        maxOutputTokens: 4096
+        maxConcurrentRequests: 2

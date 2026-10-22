@@ -1,0 +1,26 @@
+{
+  "harness": "0.2.1-rc.2",
+  "tests": [
+    "No overlap: light, 320px",
+    "No overlap: light, 375px",
+    "No overlap: light, 768px",
+    "No overlap: light, 1200px",
+    "No overlap: dark, 320px",
+    "No overlap: dark, 375px",
+    "No overlap: dark, 768px",
+    "No overlap: dark, 1200px",
+    "One click applies one complete plain-text result without opening a sidebar",
+    "One-click application is one native Lexical undo transaction",
+    "Explicit local checks reveal all five categories without a model call",
+    "Advanced action generates a clean preview immediately; sentence choices never write early",
+    "Review footer and sentence choices fit light 320px viewport",
+    "Review footer and sentence choices fit dark 320px viewport",
+    "Conditional optimization includes local findings and completes without an extra Apply",
+    "Markdown headings, bold and bullet markers are removed before editor write-back",
+    "Detected fact loss falls back to review; restoring details also stays plain text",
+    "Cancellation releases a stuck request; failure feedback keeps the original input",
+    "Catalog timeout preserves input and restores the launcher",
+    "Reduced-motion preference disables feedback and text-flash animation",
+    "Disposal removes UI and styles; no accidental send or browser errors"
+  ]
+}

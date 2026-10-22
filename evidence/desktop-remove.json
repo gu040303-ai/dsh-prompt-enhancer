@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "nativeManager": true,
+  "removedFromDependencies": true,
+  "removedFromBundles": true,
+  "stylesRemoved": true,
+  "launcherRemoved": true,
+  "existingModelPreserved": true,
+  "patchUnchanged": true
+}

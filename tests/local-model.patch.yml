@@ -1,0 +1,3 @@
+- insert:
+    - id: enhancer-local-test
+      name: ./local-model.mjs
