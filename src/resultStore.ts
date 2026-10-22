@@ -15,10 +15,13 @@ export interface EnhanceOutcome {
   report: FidelityReport
   sourceMode?: 'quick' | 'preview' | 'conditioned'
   reviewReason?: 'facts'
+  /** Publish counter: a fresh value remounts the result text so its reveal replays. */
+  seq?: number
 }
 
 const outcomes = new Map<string, EnhanceOutcome>()
 const listeners = new Set<() => void>()
+let published = 0
 
 function notify(): void {
   for (const listener of listeners) listener()
@@ -31,7 +34,7 @@ function notify(): void {
  */
 export const resultStore = {
   publish(outcome: EnhanceOutcome): void {
-    outcomes.set(outcome.sessionId, outcome)
+    outcomes.set(outcome.sessionId, { ...outcome, seq: ++published })
     notify()
   },
   dismiss(sessionId: string): void {

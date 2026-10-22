@@ -105,7 +105,7 @@ export function EnhanceResult(props: EnhanceResultProps) {
           <button type="button" className="dsh-pe-text-action" disabled={blocked} onClick={restore}>{t('actionRestore')}</button>
         </div>}
         <div role="tabpanel" aria-label={t(view === 'result' ? 'resultTab' : 'diffTab')}>
-          {view === 'result' ? <div className="dsh-pe-text">{candidate}</div> : <div className="dsh-pe-diff">
+          {view === 'result' ? <div className="dsh-pe-text" key={outcome.seq}>{candidate}</div> : <div className="dsh-pe-diff">
             {preview && <p className="dsh-pe-caption">{t('previewHint')}</p>}
             {review?.truncated ? <p>{t('diffTooLong')}</p> : review?.choices.map(item => item.same
               ? <p key={item.id} className="dsh-pe-choice-same">{displaySentence(item.before)}</p>
