@@ -1,8 +1,6 @@
-# 增强提示词 0.4.0 · DeepSeek Harness
+# 增强提示词 0.4.1 · DeepSeek Harness
 
 点击输入框中的魔法棒，即可使用当前模型优化提示词并写回。完成后可撤销；只有需要仔细检查时才打开侧栏。
-
-> `motion-polish` 分支包含动效与状态提示修复。完整安装包：[dsh-prompt-enhancer-0.4.0-motion-fix.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/raw/refs/heads/motion-polish/downloads/dsh-prompt-enhancer-0.4.0-motion-fix.tgz)。下载后在 Harness「插件 → 添加插件」中填写本地文件的绝对路径，无需解压或构建。安装及验证说明见 [downloads/README.md](downloads/README.md)。这是基于 0.4.0 的修复构建，包内版本仍为 0.4.0。
 
 精确适配 DeepSeek Harness 0.2.1-rc.2，支持桌面 Electron 与 Web，复用已有模型配置。
 
@@ -10,10 +8,10 @@
 
 ## 桌面安装与升级
 
-从 [v0.4.0 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.0) 下载 [dsh-prompt-enhancer-0.4.0.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.0/dsh-prompt-enhancer-0.4.0.tgz)。请选择预构建的 tgz 安装包；GitHub 自动生成的 Source code ZIP 是开发源码。Release 同时提供 SHA256SUMS-0.4.0.txt，可核对文件完整性。
+从 [v0.4.1 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.1) 下载 [dsh-prompt-enhancer-0.4.1.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.1/dsh-prompt-enhancer-0.4.1.tgz)。请选择预构建的 tgz 安装包；GitHub 自动生成的 Source code ZIP 是开发源码。Release 同时提供 SHA256SUMS-0.4.1.txt，可核对文件完整性。
 
 1. 打开左侧「插件」。如果已安装旧版 dsh-prompt-enhancer，进入详情并卸载。
-2. 点击「添加插件」，在「包名或地址」粘贴本地 dsh-prompt-enhancer-0.4.0.tgz 的绝对路径。
+2. 点击「添加插件」，在「包名或地址」粘贴本地 dsh-prompt-enhancer-0.4.1.tgz 的绝对路径。
 3. 点击「安装」，完成后「立即启用」。
 4. 完整退出 Harness 并重新打开，刷新宿主静态资源。
 
@@ -22,14 +20,14 @@
 Web 安装到已有 profile：
 
 ```powershell
-dsh plugin --profile web add "./dsh-prompt-enhancer-0.4.0.tgz"
+dsh plugin --profile web add "./dsh-prompt-enhancer-0.4.1.tgz"
 # 卸载
 dsh plugin --profile web remove dsh-prompt-enhancer
 ```
 
 ## 日常使用
 
-写草稿 → 点击魔法棒 → 完成后写回。原来「打开面板 → 优化草稿 → 应用」的三次点击，普通路径现在只需一次。请求过程中保持原文，下面提供「取消」；完成后只有「已优化 · 撤销 · 查看改动」一行反馈，不自动展开侧栏，也不自动发送消息。
+写草稿 → 点击魔法棒 → 完成后写回。原来「打开面板 → 优化草稿 → 应用」的三次点击，普通路径现在只需一次。请求过程中保持原文，下面提供「取消」；完成后显示「已优化并写回」以及撤销、查看改动和关闭入口，窄窗口自动换行，不自动展开侧栏，也不自动发送消息。
 
 魔法棒旁的下拉菜单保留详细功能：
 

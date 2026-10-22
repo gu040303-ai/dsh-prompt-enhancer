@@ -1,6 +1,6 @@
 {
   "name": "dsh-prompt-enhancer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "One-click plain-text prompt enhancement and optional sentence review in DeepSeek Harness",
   "type": "module",
   "license": "MIT",

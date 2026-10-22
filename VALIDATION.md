@@ -1,4 +1,17 @@
-# 0.4.0 验证记录
+# 0.4.1 验证记录
+
+目标：DeepSeek Harness 0.2.1-rc.2。2026-10-22 在 Windows、Node 24.15.0 与 Chrome 上验证本次动效和状态提示修复。
+
+- npm run check：严格类型检查、构建及 130 条自动化测试。
+- npm run test:feedback：176 组浏览器布局检查，覆盖中英文、深浅主题、240/320/392/672px 宽度、减少动态效果、关闭提示后保留侧栏结果。
+- 浏览器夹具使用真实插件组件、已安装的原生 Button 与模拟输入状态；本版本没有重新运行完整 Harness 应用及真实模型调用。下方完整应用数据属于 0.4.0 历史记录，不代表 0.4.1 已重复验证。
+- 完整安装包包含预构建 runtime、类型声明、配置及资源，发布资产附 SHA-256 校验文件。
+
+动效参数见 [MOTION.md](MOTION.md)，修复验证记录见 [evidence/feedback-fix-validation.json](evidence/feedback-fix-validation.json)。
+
+---
+
+# 0.4.0 验证记录（历史）
 
 日期：2026-10-22。目标：DeepSeek Harness 0.2.1-rc.2。Windows、Node 24.15.0、Chrome，以及机器上实际安装的 Electron 桌面程序。参考宿主提交 687f282e8625c6b8d11ff58211a90524be2e4317，未修改宿主源码。
 
