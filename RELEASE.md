@@ -1,8 +1,14 @@
-# 0.4.2 本地兼容更新
+# 0.4.2 发布信息
 
-本地完整安装包：`dsh-prompt-enhancer-0.4.2.tgz`。兼容声明覆盖 Harness 0.2.1-rc.2 与 0.2.1-rc.3，修复新版宿主因旧版本声明而拒载插件的问题。安装包包含构建产物、配置和资源，无需解压或编译。
+正式版：[v0.4.2 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.2)。兼容声明覆盖 Harness 0.2.1-rc.2 与 0.2.1-rc.3，修复新版宿主因旧版本声明而拒载插件的问题。安装包包含构建产物、配置和资源，无需解压或编译。
 
-本轮类型检查、构建、130 条自动化测试，以及实际 rc.3 宿主加载和浏览器入口验证通过；没有验证真实模型生成。范围和复现命令见 [VALIDATION.md](VALIDATION.md)。本次尚未发布 GitHub Release，下面保留此前正式版信息。
+本轮类型检查、构建、130 条自动化测试，以及实际 rc.3 宿主加载和浏览器入口验证通过；没有验证真实模型生成。范围和复现命令见 [VALIDATION.md](VALIDATION.md)。
+
+- [完整安装包 dsh-prompt-enhancer-0.4.2.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.2/dsh-prompt-enhancer-0.4.2.tgz)
+- [源码快照 dsh-prompt-enhancer-0.4.2-source.zip](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.2/dsh-prompt-enhancer-0.4.2-source.zip)
+- [SHA256SUMS-0.4.2.txt](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.2/SHA256SUMS-0.4.2.txt)
+
+此包未发布到 npm registry。在 Harness 原生插件管理器中安装 tgz，完整退出后重新启动。原有目录收录保持不变，版本地址更新通过独立 PR 提交；是否合并以目录仓库为准。
 
 ---
 

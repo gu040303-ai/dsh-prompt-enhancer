@@ -8,7 +8,7 @@
 
 ## 桌面安装与升级
 
-本次兼容更新提供完整预构建安装包 `dsh-prompt-enhancer-0.4.2.tgz` 与对应 SHA-256 校验文件，当前为本地构建。请选择 tgz 安装包，无需解压或构建。之前的 [v0.4.1 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.1) 保留历史版本；它的兼容声明仅包含 rc.2。
+从 [v0.4.2 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.2) 下载完整预构建安装包 [dsh-prompt-enhancer-0.4.2.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.2/dsh-prompt-enhancer-0.4.2.tgz)，并可使用同页的 SHA256SUMS-0.4.2.txt 核对文件。请选择 tgz 安装包，无需解压或构建。之前的 v0.4.1 保留历史下载；它的兼容声明仅包含 rc.2。
 
 1. 打开左侧「插件」。如果已安装旧版 dsh-prompt-enhancer，进入详情并卸载。
 2. 点击「添加插件」，在「包名或地址」粘贴本地 dsh-prompt-enhancer-0.4.2.tgz 的绝对路径。
