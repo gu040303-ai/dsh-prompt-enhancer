@@ -1,6 +1,6 @@
 {
   "name": "dsh-prompt-enhancer",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "One-click plain-text prompt enhancement and optional sentence review in DeepSeek Harness",
   "type": "module",
   "license": "MIT",
@@ -35,7 +35,7 @@
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0",
-    "dsh": "0.2.1-rc.2"
+    "dsh": "0.2.1-rc.2 || 0.2.1-rc.3"
   },
   "dsh": {
     "bundle": {
@@ -59,6 +59,7 @@
     "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
     "test:browser": "node scripts/browser-smoke.mjs",
     "test:feedback": "node scripts/feedback-smoke.mjs",
+    "test:compat": "node scripts/check-harness-boot.mjs --browser",
     "test:installed": "node scripts/test-installed.mjs",
     "check": "npm run typecheck && npm run build && npm test",
     "prepack": "npm run check"
@@ -68,17 +69,17 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.5",
-    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-session": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-typert-registry": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-tools": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-skill": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-subagent": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-fs": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-working-directory": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-user-approval": "0.2.1-rc.2",
-    "@deepseek-ai/dsh-agent": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-session": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-typert-registry": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-skill": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-subagent": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-fs": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-working-directory": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-user-approval": "0.2.1-rc.2 || 0.2.1-rc.3",
+    "@deepseek-ai/dsh-agent": "0.2.1-rc.2 || 0.2.1-rc.3",
     "@deepseek-ai/schemastery": "3.18.5"
   },
   "devDependencies": {

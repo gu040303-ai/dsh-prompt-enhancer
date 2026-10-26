@@ -1,17 +1,17 @@
-# 增强提示词 0.4.1 · DeepSeek Harness
+# 增强提示词 0.4.2 · DeepSeek Harness
 
 点击输入框中的魔法棒，即可使用当前模型优化提示词并写回。完成后可撤销；只有需要仔细检查时才打开侧栏。
 
-精确适配 DeepSeek Harness 0.2.1-rc.2，支持桌面 Electron 与 Web，复用已有模型配置。
+声明支持 DeepSeek Harness 0.2.1-rc.2 与 0.2.1-rc.3，支持桌面 Electron 与 Web，复用已有模型配置。0.4.2 修复旧插件因只声明 rc.2 而被 rc.3 跳过的问题。
 
 ![一键优化后的原生输入区](assets/quick.png)
 
 ## 桌面安装与升级
 
-从 [v0.4.1 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.1) 下载 [dsh-prompt-enhancer-0.4.1.tgz](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/download/v0.4.1/dsh-prompt-enhancer-0.4.1.tgz)。请选择预构建的 tgz 安装包；GitHub 自动生成的 Source code ZIP 是开发源码。Release 同时提供 SHA256SUMS-0.4.1.txt，可核对文件完整性。
+本次兼容更新提供完整预构建安装包 `dsh-prompt-enhancer-0.4.2.tgz` 与对应 SHA-256 校验文件，当前为本地构建。请选择 tgz 安装包，无需解压或构建。之前的 [v0.4.1 Release](https://github.com/gu040303-ai/dsh-prompt-enhancer/releases/tag/v0.4.1) 保留历史版本；它的兼容声明仅包含 rc.2。
 
 1. 打开左侧「插件」。如果已安装旧版 dsh-prompt-enhancer，进入详情并卸载。
-2. 点击「添加插件」，在「包名或地址」粘贴本地 dsh-prompt-enhancer-0.4.1.tgz 的绝对路径。
+2. 点击「添加插件」，在「包名或地址」粘贴本地 dsh-prompt-enhancer-0.4.2.tgz 的绝对路径。
 3. 点击「安装」，完成后「立即启用」。
 4. 完整退出 Harness 并重新打开，刷新宿主静态资源。
 
@@ -20,7 +20,7 @@
 Web 安装到已有 profile：
 
 ```powershell
-dsh plugin --profile web add "./dsh-prompt-enhancer-0.4.1.tgz"
+dsh plugin --profile web add "./dsh-prompt-enhancer-0.4.2.tgz"
 # 卸载
 dsh plugin --profile web remove dsh-prompt-enhancer
 ```

@@ -1,4 +1,12 @@
-# 0.4.1 发布信息
+# 0.4.2 本地兼容更新
+
+本地完整安装包：`dsh-prompt-enhancer-0.4.2.tgz`。兼容声明覆盖 Harness 0.2.1-rc.2 与 0.2.1-rc.3，修复新版宿主因旧版本声明而拒载插件的问题。安装包包含构建产物、配置和资源，无需解压或编译。
+
+本轮类型检查、构建、130 条自动化测试，以及实际 rc.3 宿主加载和浏览器入口验证通过；没有验证真实模型生成。范围和复现命令见 [VALIDATION.md](VALIDATION.md)。本次尚未发布 GitHub Release，下面保留此前正式版信息。
+
+---
+
+# 0.4.1 发布信息（历史）
 
 源码仓库：[gu040303-ai/dsh-prompt-enhancer](https://github.com/gu040303-ai/dsh-prompt-enhancer)。
 

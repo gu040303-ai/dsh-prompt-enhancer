@@ -1,4 +1,18 @@
-# 0.4.1 验证记录
+# 0.4.2 验证记录
+
+日期：2026-10-26。使用本机安装的官方 Harness 0.2.1-rc.3 构建产物，源提交 be72761ee1a6736ebcdf4f3739363b083ae53c98；没有修改宿主源码或安装目录。
+
+- 旧包 0.4.1 在实际加载器中稳定复现：`engines.dsh` 仅为 `0.2.1-rc.2`，宿主跳过整个 bundle，因而界面没有魔法棒。
+- 修改兼容声明后，同一真实加载器正常启用插件，不使用版本豁免。
+- `npm run check`：类型检查、构建、130 条自动化测试通过；开发依赖仍固定在 rc.2，保留旧版 API 的回归覆盖。
+- `npm run test:compat`：在独立 profile 启动真实 rc.3 Web 应用，验证输入后魔法棒启用、菜单可打开预览侧栏、原始草稿不变，浏览器无运行错误。
+- 测试 profile 没有账号和模型配置。预览调用在模型不可用时报告失败；本轮验证的是宿主加载、界面入口与草稿保护，没有验证真实模型生成，也没有调用外部付费模型或操作日常桌面 profile。
+
+复现界面回归：先构建插件，将 `HARNESS_RUNTIME` 指向官方宿主运行目录（应含 `node_modules/@deepseek-ai/dsh/lib/bin.js`），将 `CHROME_PATH` 指向 Chrome，然后运行 `npm run test:compat`。测试每次创建新的 `.browser-smoke/compat/home-*`，认证令牌不输出。当前机器默认使用工作区旁的 `.harness-rc3/dsh`。
+
+---
+
+# 0.4.1 验证记录（历史）
 
 目标：DeepSeek Harness 0.2.1-rc.2。2026-10-22 在 Windows、Node 24.15.0 与 Chrome 上验证本次动效和状态提示修复。
 

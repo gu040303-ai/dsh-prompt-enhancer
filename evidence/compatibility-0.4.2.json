@@ -1,0 +1,17 @@
+{
+  "version": "0.4.2",
+  "hostVersion": "0.2.1-rc.3",
+  "checks": [
+    "Actual host accepts the package without a version exemption",
+    "A plain draft enables the wand; preview opens the native sidebar without changing the draft",
+    "Wand is visible in the real host browser UI"
+  ],
+  "errors": [],
+  "realHost": true,
+  "isolatedProfile": true,
+  "externalModelCalls": false,
+  "baseRegressionTests": 130,
+  "rootCause": "The prior engines.dsh range matched rc.2 only; the rc.3 compatibility gate skipped the entire plugin bundle.",
+  "redReproduction": "The pristine 0.4.1 manifest was rejected by the actual rc.3 profile loader before the compatibility range changed.",
+  "verifiedAt": "2026-10-26"
+}
